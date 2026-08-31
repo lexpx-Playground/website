@@ -1,0 +1,2037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexora AI Technology - AI-Ready Infrastructure for Malaysia's Digital Future</title>
+    <style>
+        /* CSS Variables for Modern Theming */
+        :root {
+            --primary-color: #0066CC;
+            --primary-dark: #004C99;
+            --secondary-color: #00A3E0;
+            --accent-color: #00D4AA;
+            --light-bg: #FFFFFF;
+            --section-bg: #F8FAFC;
+            --section-alt-bg: #F1F5F9;
+            --card-bg: #FFFFFF;
+            --text-primary: #1A1A1A;
+            --text-secondary: #475569;
+            --text-muted: #94A3B8;
+            --border-color: #E2E8F0;
+            --gradient-primary: linear-gradient(135deg, #0066CC 0%, #00A3E0 100%);
+            --gradient-hero: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s ease;
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+            --container-max: 1200px;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            color: var(--text-primary);
+        }
+
+        h3 {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            color: var(--text-primary);
+        }
+
+        p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--text-primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: var(--text-primary);
+        }
+
+        .btn-full {
+            width: 100%;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            padding: var(--spacing-sm) 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav {
+            display: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            font-weight: 500;
+            padding: var(--spacing-xs) 0;
+            position: relative;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--text-primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: var(--light-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: var(--spacing-md);
+            z-index: 999;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+        }
+
+        .mobile-nav li {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .mobile-nav a {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            display: block;
+            padding: var(--spacing-xs) 0;
+        }
+
+        .mobile-nav a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-hero);
+            padding: calc(80px + var(--spacing-xl)) 0 var(--spacing-xl);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230066CC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .hero-subheadline {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: var(--spacing-sm);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Sections */
+        section {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-header h2 {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .section-header p {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-md);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .card h3 {
+            margin-bottom: var(--spacing-xs);
+            color: var(--text-primary);
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+
+        /* Value Pillars */
+        .value-pillars {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .pillar {
+            text-align: center;
+            padding: var(--spacing-md);
+        }
+
+        .pillar-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            line-height: 50px;
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* Location Cards */
+        .location-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius-lg);
+            height: 300px;
+        }
+
+        .location-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .location-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(10, 22, 40, 0.95), transparent);
+            padding: var(--spacing-md);
+        }
+
+        .location-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .location-positioning {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* Industries */
+        .industry-card {
+            text-align: center;
+            padding: var(--spacing-md);
+        }
+
+        .industry-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* Trusted By */
+        .trusted-by {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-md);
+            text-align: center;
+        }
+
+        .trusted-logos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+            align-items: center;
+        }
+
+        .logo-placeholder {
+            background: var(--border-color);
+            height: 60px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--gradient-primary);
+            text-align: center;
+            padding: var(--spacing-xl) 0;
+        }
+
+        .cta-section h2 {
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .cta-section .btn {
+            background: var(--text-primary);
+            color: var(--primary-color);
+        }
+
+        .cta-section .btn:hover {
+            background: var(--primary-color);
+            color: #FFFFFF;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--section-alt-bg);
+            border-top: 1px solid var(--border-color);
+            padding: var(--spacing-lg) 0 var(--spacing-md);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-section h4 {
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .footer-section a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: var(--spacing-md);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-sm);
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--text-primary);
+        }
+
+        /* Page Navigation (for single page demo) */
+        .page-nav {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-sm);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+
+        .page-nav button {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            text-align: left;
+            font-size: 0.85rem;
+        }
+
+        .page-nav button:hover,
+        .page-nav button.active {
+            background: var(--primary-color);
+            color: var(--text-primary);
+        }
+
+        /* Page Content */
+        .page-content {
+            display: none;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        /* Team Cards */
+        .team-card {
+            text-align: center;
+            padding: var(--spacing-md);
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            margin: 0 auto var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--text-primary);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Map Placeholder */
+        .map-placeholder {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: var(--spacing-sm);
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: var(--spacing-md);
+            border-left: 2px solid var(--primary-color);
+        }
+
+        .timeline-item {
+            margin-bottom: var(--spacing-md);
+            padding-left: var(--spacing-md);
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -var(--spacing-md);
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            transform: translateX(-5px);
+        }
+
+        .timeline-phase {
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: var(--spacing-md);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: var(--spacing-sm);
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .comparison-table th {
+            background: var(--card-bg);
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            color: var(--text-secondary);
+        }
+
+        /* Responsive Design - Tablet */
+        @media (min-width: 768px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .value-pillars {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .location-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .industry-cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            nav {
+                display: block;
+            }
+
+            .mobile-menu-btn {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: none;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Responsive Design - Desktop */
+        @media (min-width: 1024px) {
+            .cards-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .value-pillars {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .location-cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .hero {
+                padding: calc(80px + var(--spacing-xl)) 0 var(--spacing-xl);
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-0 {
+            margin-bottom: 0;
+        }
+
+        .mt-md {
+            margin-top: var(--spacing-md);
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">NEXORA</div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
+                    <li><a href="#" class="nav-link" data-page="datacenter">Data Center Solutions</a></li>
+                    <li><a href="#" class="nav-link" data-page="gpuas">Hosting & GPUaaS</a></li>
+                    <li><a href="#" class="nav-link" data-page="cloudai">Cloud AI Applications</a></li>
+                    <li><a href="#" class="nav-link" data-page="locations">Data Centres</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            <a href="#contact" class="btn btn-primary nav-cta" onclick="showPage('contact')">Speak to Our Team</a>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="#" onclick="showPage('home'); toggleMobileMenu()">Home</a></li>
+            <li><a href="#" onclick="showPage('about'); toggleMobileMenu()">About Us</a></li>
+            <li><a href="#" onclick="showPage('datacenter'); toggleMobileMenu()">Data Center Solutions</a></li>
+            <li><a href="#" onclick="showPage('gpuas'); toggleMobileMenu()">Hosting & GPUaaS</a></li>
+            <li><a href="#" onclick="showPage('cloudai'); toggleMobileMenu()">Cloud AI Applications</a></li>
+            <li><a href="#" onclick="showPage('locations'); toggleMobileMenu()">Data Centres</a></li>
+            <li><a href="#" onclick="showPage('contact'); toggleMobileMenu()">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Navigation (for demo) -->
+    <div class="page-nav">
+        <button onclick="showPage('home')" id="nav-home" class="active">Home</button>
+        <button onclick="showPage('about')" id="nav-about">About</button>
+        <button onclick="showPage('datacenter')" id="nav-datacenter">DC Solutions</button>
+        <button onclick="showPage('gpuas')" id="nav-gpuas">GPUaaS</button>
+        <button onclick="showPage('cloudai')" id="nav-cloudai">Cloud AI</button>
+        <button onclick="showPage('locations')" id="nav-locations">Locations</button>
+        <button onclick="showPage('contact')" id="nav-contact">Contact</button>
+    </div>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page-content active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>AI-Ready Infrastructure for Malaysia's Digital Future</h1>
+                <p class="hero-subheadline">Nexora AI Technology delivers AI-ready data centres, high-performance GPU compute, and enterprise cloud AI applications for government, enterprise, and future-focused organisations.</p>
+                <div class="hero-cta">
+                    <a href="#locations" class="btn btn-primary" onclick="showPage('locations')">Explore Our Data Centres</a>
+                    <a href="#contact" class="btn btn-secondary" onclick="showPage('contact')">Talk to Us</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Short Intro -->
+        <section>
+            <div class="container">
+                <div class="text-center">
+                    <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem;">Nexora is an AI infrastructure and solutions company that combines physical infrastructure, compute, and AI applications to support enterprise and public sector adoption of artificial intelligence at scale.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Three Core Business Lines -->
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Core Offerings</h2>
+                    <p>From infrastructure to applications — we own the full stack</p>
+                </div>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-icon">🏢</div>
+                        <h3>Data Center Solutions</h3>
+                        <p>Design and deployment of AI-ready data centres, servers, networking, and GPU infrastructure for enterprise-scale deployments.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">⚡</div>
+                        <h3>Hosting & GPU-as-a-Service</h3>
+                        <p>On-demand access to high-performance GPU clusters for AI training and inference without heavy capital expenditure.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">☁️</div>
+                        <h3>Cloud AI Applications</h3>
+                        <p>Deployment of analytics, automation, and agentic AI solutions for enterprise and public sector use cases.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Nexora -->
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Why Choose Nexora</h2>
+                    <p>Nexora brings together infrastructure, compute, and AI application expertise into one accountable platform — reducing complexity and accelerating deployment.</p>
+                </div>
+                <div class="value-pillars">
+                    <div class="pillar">
+                        <div class="pillar-number">1</div>
+                        <h3>Integrated AI Infrastructure</h3>
+                        <p>End-to-end solutions from data centre design to AI application deployment</p>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-number">2</div>
+                        <h3>Enterprise & Public Sector Ready</h3>
+                        <p>Built for mission-critical workloads with governance and compliance in mind</p>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-number">3</div>
+                        <h3>Scalable Compute & Deployment</h3>
+                        <p>Flexible infrastructure that grows with your AI ambitions</p>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-number">4</div>
+                        <h3>Local Presence, Regional Ambition</h3>
+                        <p>Malaysian roots with capability to support regional expansion</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Centre Locations Teaser -->
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Data Centre Locations</h2>
+                    <p>Strategically positioned across Malaysia's key digital corridors</p>
+                </div>
+                <div class="cards-grid location-cards">
+                    <div class="location-card">
+                        <div class="location-image"></div>
+                        <div class="location-overlay">
+                            <div class="location-name">Cyberjaya</div>
+                            <div class="location-positioning">Flagship AI-ready data centre in Malaysia's digital corridor</div>
+                            <a href="#" class="btn btn-secondary" onclick="showPage('locations')">View Details</a>
+                        </div>
+                    </div>
+                    <div class="location-card">
+                        <div class="location-image"></div>
+                        <div class="location-overlay">
+                            <div class="location-name">Shah Alam / Glenmarie</div>
+                            <div class="location-positioning">Secure enterprise and disaster recovery hub near Kuala Lumpur</div>
+                            <a href="#" class="btn btn-secondary" onclick="showPage('locations')">View Details</a>
+                        </div>
+                    </div>
+                    <div class="location-card">
+                        <div class="location-image"></div>
+                        <div class="location-overlay">
+                            <div class="location-name">Johor Bahru / Iskandar</div>
+                            <div class="location-positioning">Southern gateway for regional AI growth and cross-border demand</div>
+                            <a href="#" class="btn btn-secondary" onclick="showPage('locations')">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Industries Served -->
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Industries We Serve</h2>
+                    <p>AI adoption is accelerating across sectors</p>
+                </div>
+                <div class="cards-grid industry-cards">
+                    <div class="card industry-card">
+                        <div class="industry-icon">🏛️</div>
+                        <h3>Government & Public Sector</h3>
+                    </div>
+                    <div class="card industry-card">
+                        <div class="industry-icon">🏥</div>
+                        <h3>Healthcare</h3>
+                    </div>
+                    <div class="card industry-card">
+                        <div class="industry-icon">🎓</div>
+                        <h3>Education</h3>
+                    </div>
+                    <div class="card industry-card">
+                        <div class="industry-icon">💰</div>
+                        <h3>Financial Services</h3>
+                    </div>
+                    <div class="card industry-card">
+                        <div class="industry-icon">🏢</div>
+                        <h3>Enterprise & Digital Platforms</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trusted By -->
+        <section>
+            <div class="container">
+                <div class="trusted-by">
+                    <h3>Trusted by organisations across government, enterprise, healthcare, education, and digital services</h3>
+                    <div class="trusted-logos">
+                        <div class="logo-placeholder">Government Agency</div>
+                        <div class="logo-placeholder">Healthcare Org</div>
+                        <div class="logo-placeholder">Education Provider</div>
+                        <div class="logo-placeholder">Enterprise Client</div>
+                        <div class="logo-placeholder">Financial Services</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Build Your AI Future on Nexora</h2>
+                <a href="#contact" class="btn" onclick="showPage('contact')">Contact Us</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT US PAGE -->
+    <div id="about" class="page-content">
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>About Nexora AI Technology</h1>
+                <p class="hero-subheadline">Nexora AI Technology is an AI infrastructure and solutions company enabling organisations to deploy AI at scale through data centre infrastructure, high-performance compute, and intelligent applications.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Who We Are</h2>
+                </div>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <p>Nexora operates across infrastructure, compute, and applications, serving enterprise and public sector customers with a focus on practical, deployable AI at scale. We are committed to being the trusted partner for organisations looking to harness the power of artificial intelligence.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Journey</h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-phase">Phase 1: Establishment</div>
+                        <p>Founded with a focus on digital solutions and technology delivery.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-phase">Phase 2: Growth</div>
+                        <p>Expanded into enterprise systems, infrastructure, and large-scale digital initiatives.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-phase">Phase 3: AI Infrastructure Focus</div>
+                        <p>Advanced into AI-ready infrastructure, GPU compute, and cloud AI solutions.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-phase">Phase 4: Regional Scale</div>
+                        <p>Positioned as a platform for AI adoption across Malaysia and the wider region.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>What Drives Us</h2>
+                </div>
+                <div class="cards-grid">
+                    <div class="card pillar">
+                        <div class="card-icon">🎯</div>
+                        <h3>Integrity</h3>
+                        <p>Transparent, ethical, and accountable in all our dealings</p>
+                    </div>
+                    <div class="card pillar">
+                        <div class="card-icon">✅</div>
+                        <h3>Reliability</h3>
+                        <p>Delivering on commitments with consistency and excellence</p>
+                    </div>
+                    <div class="card pillar">
+                        <div class="card-icon">💡</div>
+                        <h3>Innovation</h3>
+                        <p>Continuously advancing our capabilities to meet evolving needs</p>
+                    </div>
+                    <div class="card pillar">
+                        <div class="card-icon">🇲🇾</div>
+                        <h3>National Impact</h3>
+                        <p>Contributing to Malaysia's digital transformation and AI readiness</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Leadership Team</h2>
+                </div>
+                <div class="cards-grid">
+                    <div class="card team-card">
+                        <div class="team-avatar">👤</div>
+                        <h3>Managing Director</h3>
+                        <p>Leads strategy, partnerships, and execution across Nexora's AI infrastructure and solutions portfolio.</p>
+                    </div>
+                    <div class="card team-card">
+                        <div class="team-avatar">👤</div>
+                        <h3>Chief Financial Officer</h3>
+                        <p>Oversees financial planning, risk management, and investment strategy.</p>
+                    </div>
+                    <div class="card team-card">
+                        <div class="team-avatar">👤</div>
+                        <h3>Chief Technology Officer</h3>
+                        <p>Drives technology vision, architecture, and innovation across all offerings.</p>
+                    </div>
+                    <div class="card team-card">
+                        <div class="team-avatar">👤</div>
+                        <h3>Head of Strategy</h3>
+                        <p>Shapes strategic direction, market positioning, and growth initiatives.</p>
+                    </div>
+                    <div class="card team-card">
+                        <div class="team-avatar">👤</div>
+                        <h3>Director of AI Services</h3>
+                        <p>Leads AI solution development and deployment for enterprise clients.</p>
+                    </div>
+                    <div class="card team-card">
+                        <div class="team-avatar">👤</div>
+                        <h3>Head of Machine Learning</h3>
+                        <p>Oversees ML model development, training, and optimisation.</p>
+                    </div>
+                    <div class="card team-card">
+                        <div class="team-avatar">👤</div>
+                        <h3>Head of Engineering</h3>
+                        <p>Manages engineering teams and infrastructure deployment.</p>
+                    </div>
+                    <div class="card team-card">
+                        <div class="team-avatar">👤</div>
+                        <h3>Advisor</h3>
+                        <p>Provides strategic guidance and industry expertise.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="trusted-by">
+                    <h3>Governance & Compliance</h3>
+                    <p style="margin-top: var(--spacing-sm);">Nexora is committed to responsible technology delivery, governance, security, and compliance as it supports national and enterprise-scale initiatives.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Partner with Nexora</h2>
+                <a href="#contact" class="btn" onclick="showPage('contact')">Speak to Our Team</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- DATA CENTER SOLUTIONS PAGE -->
+    <div id="datacenter" class="page-content">
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>Data Center Solutions</h1>
+                <p class="hero-subheadline">Turnkey design, procurement, integration, and commissioning of AI-ready data centre and GPU infrastructure.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>What We Deliver</h2>
+                </div>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-icon">📐</div>
+                        <h3>Architecture & Planning</h3>
+                        <p>Comprehensive data centre design tailored to AI workloads and scalability requirements.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🖥️</div>
+                        <h3>Hardware Supply</h3>
+                        <p>Procurement of servers, GPUs, networking equipment, and supporting infrastructure.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🔧</div>
+                        <h3>Integration & Setup</h3>
+                        <p>Professional installation, configuration, and integration of all systems.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">✅</div>
+                        <h3>Commissioning & Handover</h3>
+                        <p>Testing, validation, and formal handover with documentation and training.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Delivery Process</h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-phase">1. Discovery & Design</div>
+                        <p>Workload analysis, capacity modelling, and infrastructure stack recommendation.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-phase">2. Procurement & Supply</div>
+                        <p>GPU cluster sourcing, hardware configuration, and logistics coordination.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-phase">3. Integration & Setup</div>
+                        <p>Systems, data, and workflows integrated into a production-ready environment.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-phase">4. Commission & Go Live</div>
+                        <p>Security hardening, testing, validation, and handover.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Project Types</h2>
+                </div>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>GPU Cluster Deployments</h3>
+                        <p>High-density GPU installations for AI training and inference.</p>
+                    </div>
+                    <div class="card">
+                        <h3>AI-Ready Server Racks</h3>
+                        <p>Pre-configured racks optimised for AI workloads.</p>
+                    </div>
+                    <div class="card">
+                        <h3>High-Performance Compute Environments</h3>
+                        <p>Infrastructure designed for demanding computational tasks.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Liquid-Cooling-Ready Infrastructure</h3>
+                        <p>Advanced cooling solutions for high-density deployments.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Enterprise Data Centre Modernisation</h3>
+                        <p>Upgrading legacy infrastructure for AI readiness.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Who This Is For</h2>
+                </div>
+                <div class="cards-grid">
+                    <div class="card industry-card">
+                        <div class="industry-icon">🏛️</div>
+                        <h3>Government Agencies</h3>
+                    </div>
+                    <div class="card industry-card">
+                        <div class="industry-icon">🏢</div>
+                        <h3>Enterprises</h3>
+                    </div>
+                    <div class="card industry-card">
+                        <div class="industry-icon">🎓</div>
+                        <h3>Educational Institutions</h3>
+                    </div>
+                    <div class="card industry-card">
+                        <div class="industry-icon">🏥</div>
+                        <h3>Healthcare Organisations</h3>
+                    </div>
+                    <div class="card industry-card">
+                        <div class="industry-icon">🏛️</div>
+                        <h3>GLCs & Public-Sector Bodies</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Discuss Your Data Centre Requirements</h2>
+                <a href="#contact" class="btn" onclick="showPage('contact')">Contact Us</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- HOSTING & GPU-AS-A-SERVICE PAGE -->
+    <div id="gpuas" class="page-content">
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>Hosting & GPU-as-a-Service</h1>
+                <p class="hero-subheadline">Access high-performance GPU infrastructure and AI-ready hosting environments without the burden of owning and operating physical infrastructure.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Core Offerings</h2>
+                </div>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-icon">🎯</div>
+                        <h3>Dedicated GPU Rental</h3>
+                        <p>Reserved GPU capacity for high-throughput AI training and inference workloads.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">⚙️</div>
+                        <h3>AI-Ready Hosting</h3>
+                        <p>Pre-configured environments optimised for LLMs, inference, and production AI pipelines.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🚀</div>
+                        <h3>High-Speed Networking</h3>
+                        <p>Low-latency connectivity and high-performance storage for demanding AI workloads.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">📈</div>
+                        <h3>Flexible Scaling</h3>
+                        <p>Scale resources according to workload needs with predictable pricing.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🔒</div>
+                        <h3>Security & Compliance</h3>
+                        <p>Baseline security controls and governance-ready hosting configurations.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">👁️</div>
+                        <h3>Managed Monitoring</h3>
+                        <p>Proactive monitoring and support for availability and operational reliability.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Use Cases</h2>
+                </div>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>Model Training</h3>
+                        <p>Train large-scale AI models with dedicated GPU resources.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Model Inference</h3>
+                        <p>Deploy and run AI models in production environments.</p>
+                    </div>
+                    <div class="card">
+                        <h3>LLM Deployment</h3>
+                        <p>Host and serve large language models at scale.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Data Analytics</h3>
+                        <p>Process and analyse large datasets with GPU acceleration.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Computer Vision</h3>
+                        <p>Run image and video processing workloads efficiently.</p>
+                    </div>
+                    <div class="card">
+                        <h3>AI Application Hosting</h3>
+                        <p>Deploy complete AI applications with full infrastructure support.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Why GPUaaS with Nexora</h2>
+                </div>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-icon">💰</div>
+                        <h3>No Heavy Upfront Investment</h3>
+                        <p>Avoid capital expenditure on expensive GPU hardware.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">⚡</div>
+                        <h3>Faster Time to Deployment</h3>
+                        <p>Get started quickly without procurement delays.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🏢</div>
+                        <h3>Enterprise-Grade Environment</h3>
+                        <p>Production-ready infrastructure with reliability guarantees.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">📊</div>
+                        <h3>Scalable as Workloads Grow</h3>
+                        <p>Expand resources seamlessly as your AI ambitions grow.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🇲🇾</div>
+                        <h3>Local Support & Accountability</h3>
+                        <p>Malaysian-based support with clear accountability.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Request GPU Availability / Pricing</h2>
+                <a href="#contact" class="btn" onclick="showPage('contact')">Contact Us</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- CLOUD AI APPLICATIONS PAGE -->
+    <div id="cloudai" class="page-content">
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>Cloud AI Applications</h1>
+                <p class="hero-subheadline">End-to-end AI application design, deployment, and automation for enterprise and public sector use cases.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>What We Do</h2>
+                </div>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-icon">📋</div>
+                        <h3>AI Strategy & Use-Case Design</h3>
+                        <p>Identify high-impact AI opportunities aligned with business objectives.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">📊</div>
+                        <h3>Data & Workflow Analysis</h3>
+                        <p>Analyse existing data and processes to identify automation potential.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">💻</div>
+                        <h3>Application Development</h3>
+                        <p>Build custom AI applications tailored to specific needs.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🤖</div>
+                        <h3>Agentic AI & Automation</h3>
+                        <p>Deploy autonomous agents for complex workflow automation.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🚀</div>
+                        <h3>Deployment & Operations</h3>
+                        <p>Production deployment with ongoing monitoring and support.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Solution Categories</h2>
+                </div>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>Analytics Dashboards</h3>
+                        <p>Real-time insights and visualisation powered by AI.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Intelligent Document Processing</h3>
+                        <p>Automated document understanding and extraction.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Workflow Automation</h3>
+                        <p>Streamline business processes with AI-driven automation.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Chat & Assistant Solutions</h3>
+                        <p>Conversational AI for customer and employee support.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Agentic AI Systems</h3>
+                        <p>Autonomous agents for complex task execution.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Public Sector Service Digitalisation</h3>
+                        <p>Modernise citizen services with AI capabilities.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Enterprise AI Copilots</h3>
+                        <p>AI assistants for productivity and decision support.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="trusted-by">
+                    <h3>Why End-to-End Matters</h3>
+                    <p style="margin-top: var(--spacing-sm);">A single partner across the AI lifecycle reduces complexity, improves accountability, and accelerates time to value.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Example Use Cases by Sector</h2>
+                </div>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>Government</h3>
+                        <p>Service automation, document intelligence, citizen engagement platforms.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Healthcare</h3>
+                        <p>Operational analytics, workflow support, patient management systems.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Education</h3>
+                        <p>Smart administration, learning analytics, student support tools.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Financial Services</h3>
+                        <p>Risk analytics, fraud detection, process automation.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Enterprise</h3>
+                        <p>AI copilots, customer intelligence, process optimization.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Explore AI Use Cases for Your Organisation</h2>
+                <a href="#contact" class="btn" onclick="showPage('contact')">Contact Us</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- DATA CENTRES LOCATIONS PAGE -->
+    <div id="locations" class="page-content">
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>Our Data Centre Locations in Malaysia</h1>
+                <p class="hero-subheadline">Strategically located infrastructure supporting enterprise AI, high-performance compute, and future national-scale workloads.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Malaysia Data Centre Map</h2>
+                </div>
+                <div class="map-placeholder">
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: var(--spacing-sm);">🗺️</div>
+                        <p>Interactive Malaysia map with location pins:</p>
+                        <p>📍 Cyberjaya | 📍 Shah Alam / Glenmarie | 📍 Johor Bahru / Iskandar Malaysia</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Location Showcase</h2>
+                </div>
+                <div class="cards-grid location-cards">
+                    <div class="location-card" style="height: 400px;">
+                        <div class="location-image" style="background: linear-gradient(135deg, #0066CC, #00A3E0);"></div>
+                        <div class="location-overlay">
+                            <div class="location-name">Nexora Cyberjaya AI Data Centre</div>
+                            <div class="location-positioning">Flagship AI-ready data centre in Malaysia's digital corridor</div>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: var(--spacing-sm);">Designed to support high-density GPU clusters, AI training workloads, and enterprise AI deployment.</p>
+                            <div class="stats-grid" style="grid-template-columns: repeat(2, 1fr); gap: var(--spacing-xs);">
+                                <div class="stat-item">
+                                    <div class="stat-value">TIA-942 Rated 3/4</div>
+                                    <div class="stat-label">Target Rating</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">[X MW]</div>
+                                    <div class="stat-label">Power Capacity</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">[X racks]</div>
+                                    <div class="stat-label">Rack Capacity</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">Carrier-neutral</div>
+                                    <div class="stat-label">Connectivity</div>
+                                </div>
+                            </div>
+                            <p style="margin-top: var(--spacing-sm); color: var(--accent-color); font-size: 0.85rem;">Best for: AI training, GPU clusters, enterprise AI hosting</p>
+                        </div>
+                    </div>
+                    <div class="location-card" style="height: 400px;">
+                        <div class="location-image" style="background: linear-gradient(135deg, #004C99, #0066CC);"></div>
+                        <div class="location-overlay">
+                            <div class="location-name">Nexora Shah Alam Enterprise Data Centre</div>
+                            <div class="location-positioning">Secure enterprise and disaster recovery hub near Kuala Lumpur</div>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: var(--spacing-sm);">Supports mission-critical enterprise workloads, managed hosting, and resilient AI infrastructure.</p>
+                            <div class="stats-grid" style="grid-template-columns: repeat(2, 1fr); gap: var(--spacing-xs);">
+                                <div class="stat-item">
+                                    <div class="stat-value">Rated 3</div>
+                                    <div class="stat-label">Target Rating</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">[X MW]</div>
+                                    <div class="stat-label">Power Capacity</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">Multi-carrier</div>
+                                    <div class="stat-label">Connectivity</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">Enterprise/DR</div>
+                                    <div class="stat-label">Focus</div>
+                                </div>
+                            </div>
+                            <p style="margin-top: var(--spacing-sm); color: var(--accent-color); font-size: 0.85rem;">Best for: Enterprise systems, disaster recovery, private cloud</p>
+                        </div>
+                    </div>
+                    <div class="location-card" style="height: 400px;">
+                        <div class="location-image" style="background: linear-gradient(135deg, #00A3E0, #00D4AA);"></div>
+                        <div class="location-overlay">
+                            <div class="location-name">Nexora Johor AI Gateway Data Centre</div>
+                            <div class="location-positioning">Southern gateway for regional AI growth and cross-border digital demand</div>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: var(--spacing-sm);">Positioned to support expanding AI workloads, regional enterprise demand, and next-generation infrastructure growth.</p>
+                            <div class="stats-grid" style="grid-template-columns: repeat(2, 1fr); gap: var(--spacing-xs);">
+                                <div class="stat-item">
+                                    <div class="stat-value">[X MW]</div>
+                                    <div class="stat-label">Power Capacity</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">Regional/AI</div>
+                                    <div class="stat-label">Focus</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">[Placeholder]</div>
+                                    <div class="stat-label">Connectivity</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">Johor-SG</div>
+                                    <div class="stat-label">Growth Corridor</div>
+                                </div>
+                            </div>
+                            <p style="margin-top: var(--spacing-sm); color: var(--accent-color); font-size: 0.85rem;">Best for: Regional AI deployment, inference workloads, future capacity</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Location Comparison</h2>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Location</th>
+                                <th>Positioning</th>
+                                <th>Target Rating</th>
+                                <th>Power Capacity</th>
+                                <th>Key Focus</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Cyberjaya</strong></td>
+                                <td>Flagship AI data centre</td>
+                                <td>TIA-942 Rated 3/4</td>
+                                <td>[X MW]</td>
+                                <td>AI training, GPU clusters</td>
+                                <td>Planned</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Shah Alam</strong></td>
+                                <td>Enterprise & DR hub</td>
+                                <td>Rated 3</td>
+                                <td>[X MW]</td>
+                                <td>Enterprise workloads, DR</td>
+                                <td>Planned</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Johor Bahru</strong></td>
+                                <td>Regional AI gateway</td>
+                                <td>[TBD]</td>
+                                <td>[X MW]</td>
+                                <td>Regional AI, inference</td>
+                                <td>Planned</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Facility Highlights</h2>
+                </div>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-icon">✅</div>
+                        <h3>High Availability Design</h3>
+                        <p>Redundant systems for maximum uptime and reliability.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🔒</div>
+                        <h3>Multi-Layer Security</h3>
+                        <p>Physical and cyber security at every level.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">⚡</div>
+                        <h3>Scalable Power & Rack Capacity</h3>
+                        <p>Flexible infrastructure that grows with demand.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🚀</div>
+                        <h3>High-Speed Connectivity</h3>
+                        <p>Low-latency connections to major networks.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🌱</div>
+                        <h3>Sustainability Considerations</h3>
+                        <p>Energy-efficient design and operations.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">👁️</div>
+                        <h3>Operations & Monitoring</h3>
+                        <p>24/7 monitoring and expert operations team.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Arrange a Data Centre Briefing</h2>
+                <a href="#contact" class="btn" onclick="showPage('contact')">Contact Us</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page-content">
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>Contact Nexora AI Technology</h1>
+                <p class="hero-subheadline">Speak to us about data centre infrastructure, GPU compute, or AI applications for your organisation.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="contact-form">
+                    <form onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="organisation">Organisation *</label>
+                            <input type="text" id="organisation" name="organisation" required placeholder="Your company or organisation">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+60 XX XXXX XXXX">
+                        </div>
+                        <div class="form-group">
+                            <label for="interest">Area of Interest *</label>
+                            <select id="interest" name="interest" required>
+                                <option value="">Select an option</option>
+                                <option value="datacenter">Data Center Solutions</option>
+                                <option value="gpuas">Hosting & GPU-as-a-Service</option>
+                                <option value="cloudai">Cloud AI Applications</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required placeholder="Tell us about your requirements..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                    <div class="card">
+                        <div class="card-icon">📍</div>
+                        <h3>Office Address</h3>
+                        <p>[Placeholder Address]<br>Kuala Lumpur, Malaysia</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">📞</div>
+                        <h3>Phone</h3>
+                        <p>+60 XX XXXX XXXX</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">✉️</div>
+                        <h3>Email</h3>
+                        <p>info@nexora.ai</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🕐</div>
+                        <h3>Business Hours</h3>
+                        <p>Monday - Friday<br>9:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="map-placeholder" style="height: 300px;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: var(--spacing-sm);">🗺️</div>
+                        <p>Embedded Google Map</p>
+                        <p style="font-size: 0.9rem;">Kuala Lumpur, Malaysia</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="text-center">
+                    <a href="#" class="btn btn-secondary">
+                        📄 Download Company Profile
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <div class="logo" style="margin-bottom: var(--spacing-sm);">NEXORA</div>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary);">Nexora AI Technology is an AI infrastructure and solutions company enabling organisations to deploy AI at scale through data centre infrastructure, high-performance compute, and intelligent applications.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="LinkedIn">in</a>
+                        <a href="#" class="social-link" title="Twitter">𝕏</a>
+                        <a href="#" class="social-link" title="Facebook">f</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#" onclick="showPage('home')">Home</a></li>
+                        <li><a href="#" onclick="showPage('about')">About Us</a></li>
+                        <li><a href="#" onclick="showPage('datacenter')">Data Center Solutions</a></li>
+                        <li><a href="#" onclick="showPage('gpuas')">Hosting & GPUaaS</a></li>
+                        <li><a href="#" onclick="showPage('cloudai')">Cloud AI Applications</a></li>
+                        <li><a href="#" onclick="showPage('locations')">Data Centres</a></li>
+                        <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Locations</h4>
+                    <ul>
+                        <li><a href="#" onclick="showPage('locations')">Cyberjaya</a></li>
+                        <li><a href="#" onclick="showPage('locations')">Shah Alam / Glenmarie</a></li>
+                        <li><a href="#" onclick="showPage('locations')">Johor Bahru / Iskandar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:info@nexora.ai">info@nexora.ai</a></li>
+                        <li><a href="tel:+60XXXXXXXXX">+60 XX XXXX XXXX</a></li>
+                        <li style="margin-top: var(--spacing-sm);"><a href="#" onclick="showPage('contact')" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Speak to Our Team</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Nexora AI Technology. All rights reserved.</p>
+                <div style="margin-top: var(--spacing-sm);">
+                    <a href="#" style="margin: 0 var(--spacing-xs);">Privacy Policy</a> | 
+                    <a href="#" style="margin: 0 var(--spacing-xs);">Terms of Use</a> | 
+                    <a href="#" style="margin: 0 var(--spacing-xs);">Careers</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Page Navigation
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.dataset.page === pageId) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Update page nav buttons
+            document.querySelectorAll('.page-nav button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            const activeBtn = document.getElementById(`nav-${pageId}`);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+            }
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.toggle('active');
+        }
+
+        // Form Submit Handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            event.target.reset();
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // Add scroll animation to header
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
